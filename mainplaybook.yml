@@ -5,3 +5,13 @@
   become_method: sudo
   roles:
     - fresco_module
+  tasks:
+    - name: Stop service httpd, if running
+      service:
+        name: ssh
+        state: stopped
+
+    - name: Start service httpd, if not running
+      service:
+        name: ssh
+        state: started
